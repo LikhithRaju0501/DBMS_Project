@@ -13,12 +13,12 @@ const HeadingComp = (props) => {
     >
       <motion.p
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileTap={{ scale: 0.9, rotate: 360 }}
         initial={{ scale: 1 }}
         animate={{ rotate: 360 }}
         transition={{ duration: 1.5 }}
       >
-        RACHITH AND LIKHITH MOVIES, SONGS DATABASE
+        RACHIT AND LIKHITH MOVIES, SONGS DATABASE
       </motion.p>
     </div>
   );

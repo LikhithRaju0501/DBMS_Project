@@ -3,6 +3,9 @@ import { Card, Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import HeadingComp from '../components/HeadingComp';
+import Lottie from 'lottie-react';
+import movieanime from '../components/movieanime.json';
+import music from '../components/music.json';
 
 const SignInScreen = () => {
   const [Name, setName] = useState('');
@@ -73,7 +76,7 @@ const SignInScreen = () => {
             window.location.assign(`http://localhost:3000/Home?name=${Name}`);
           } else {
             console.log('Incorrect Pass');
-            alert('Incorrect Credential');
+            alert('Incorrect Credentials');
           }
         }
       })
@@ -87,11 +90,20 @@ const SignInScreen = () => {
 
   return (
     <Card border='dark' style={styles}>
-      <Card.Header>
+      <Card.Header style={{ backgroundColor: '#c8d6e5' }}>
         <HeadingComp />
       </Card.Header>
-      <Card.Img variant='top' src={backImage} />
-
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+        <Lottie
+          style={{ width: '80%', marginLeft: 40 }}
+          animationData={movieanime}
+        />
+        <Lottie
+          style={{ width: '80%', marginLeft: 40 }}
+          animationData={music}
+        />
+      </div>
+      <hr />
       <Card.Body>
         <Form.Text className='text-muted'>
           All the Fields are Case Sensitive
@@ -139,7 +151,7 @@ const SignInScreen = () => {
 };
 
 const backImage =
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRTYifwrxtxkRGy-adotqTGs2vE2Jmtt_cTdQ&usqp=CAU';
+  'https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/03/Popcorn_Time_interface-1068x578.jpg';
 
 const styles = {
   width: '50%',
@@ -150,5 +162,5 @@ const styles = {
   marginTop: 30,
   marginBottom: 'auto',
 };
-
+//https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRTYifwrxtxkRGy-adotqTGs2vE2Jmtt_cTdQ&usqp=CAU
 export default SignInScreen;

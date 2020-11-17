@@ -19,8 +19,9 @@ const AboutScreen = ({ location }) => {
           marginRight: 40,
         }}
       >
-        This Application gives information regarding the Latest Movies, Songs
-        released along with their ratings, platform in which it is released.
+        This Application gives information regarding the Latest Movies,
+        Songs,Web Series released along with their ratings, platform in which it
+        is released.
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const NavBarComp = ({ Name }) => {
   return (
     <div style={{ marginLeft: 50, marginRight: 50 }}>
       <Navbar bg='warning' expand='lg'>
-        <Navbar.Brand href='#home'>
+        <Navbar.Brand>
           <motion.h2
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -23,7 +23,52 @@ const NavBarComp = ({ Name }) => {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
             <NavDropdown title='Check Out Others' id='basic-nav-dropdown'>
-              <NavDropdown.Item>
+              <div style={{ marginLeft: 10 }}>
+                <Link
+                  to={`/Home?name=${Name}`}
+                  style={{ textDecorationWidth: 'none' }}
+                >
+                  Movies
+                </Link>{' '}
+                <br />
+                <Link
+                  to={`/Songs?name=${Name}`}
+                  style={{ textDecorationWidth: 'none' }}
+                >
+                  Songs
+                </Link>{' '}
+                <br />
+                <Link
+                  to={`/WebSeries?name=${Name}`}
+                  style={{ textDecorationWidth: 'none' }}
+                >
+                  Web Series
+                </Link>{' '}
+                <br />
+                <Link
+                  to={`/About?name=${Name}`}
+                  style={{ textDecorationWidth: 'none' }}
+                >
+                  About
+                </Link>{' '}
+                <br />
+                <hr />
+                <Link to={`/`} style={{ textDecorationWidth: 'none' }}>
+                  Signout
+                </Link>{' '}
+              </div>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>{' '}
+      <br />
+    </div>
+  );
+};
+
+export default NavBarComp;
+
+/* <NavDropdown.Item>
                 <Link
                   to={`/Home?name=${Name}`}
                   style={{ textDecorationWidth: 'none' }}
@@ -55,50 +100,9 @@ const NavBarComp = ({ Name }) => {
                   About
                 </Link>{' '}
               </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>{' '}
-      <br />
-    </div>
-  );
-};
-
-export default NavBarComp;
-
-/* <br />
-<Nav
-  appearance='tabs'
-  reversed
-  activeKey={Active}
-  onSelect={handleSelect}
-  style={{ backgroundColor: '#feca57' }}
->
-  <Nav.Item eventKey='movies' style={styles.navBar}>
-    <Link to='/Home' style={styles.linkStyle}>
-      Movies List
-    </Link>
-  </Nav.Item>
-  <Nav.Item eventKey='songs'>
-    <Link to='/Songs' style={styles.linkStyle}>
-      Songs List
-    </Link>
-  </Nav.Item>
-  <Nav.Item eventKey='webseries'>
-    <Link to='/Webseries' style={styles.linkStyle}>
-      Webseries List
-    </Link>
-  </Nav.Item>
-  <Nav.Item eventKey='about'>
-    <Link to='/about' style={styles.linkStyle}>
-      About
-    </Link>
-  </Nav.Item>
-  <HeadingComp />
-</Nav>{' '}
-<br />
-<Link to='/' style={{ textDecoration: 'none' }}>
-  <Button color='blue'>
-    <Icon icon='sign-out' /> LogOut
-  </Button>
-</Link> */
+              <hr />
+              <NavDropdown.Item>
+                <Link to={`/`} style={{ textDecorationWidth: 'none' }}>
+                  Signout
+                </Link>{' '}
+              </NavDropdown.Item> */

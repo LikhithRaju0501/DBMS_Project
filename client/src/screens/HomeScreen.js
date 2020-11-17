@@ -49,9 +49,11 @@ const HomeScreen = ({ location }) => {
           </Link>
         ))
       ) : (
-        <Spinner animation='border' style={{ marginLeft: 750 }} role='status'>
-          <span className='sr-only'>Loading...</span>
-        </Spinner>
+        <div>
+          <Spinner animation='border' style={{ marginLeft: 750 }} role='status'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        </div>
       )}
     </div>
   );
