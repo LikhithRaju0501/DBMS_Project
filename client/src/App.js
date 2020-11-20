@@ -6,6 +6,8 @@ import SongScreen from './screens/SongScreen';
 import DescriptionScreen from './screens/DescriptionScreen';
 import WebseriesScreen from './screens/WebseriesScreen';
 import WebseriesDesc from './screens/WebseriesDesc';
+import SubscribedScreen from './screens/SubscribedScreen';
+import SubscribedContent from './screens/SubscribedContent';
 import SongAdd from './screens/SongAdd';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -21,6 +23,8 @@ function App() {
         <Route path='/descriptionSeries' exact component={WebseriesDesc} />
         <Route path='/Webseries' exact component={WebseriesScreen} />
         <Route path='/SongAdd' exact component={SongAdd} />
+        <Route path='/MySubbed' exact component={SubscribedScreen} />
+        <Route path='/Subscribed' exact component={SubscribedContent} />
         {/* <Route path='/delete' exact component={DeletePage} />  
         <Route path='/tables' exact component={GettingTable} />   */}
       </Router>

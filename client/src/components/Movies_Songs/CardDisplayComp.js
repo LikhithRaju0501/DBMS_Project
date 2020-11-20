@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CardDisplayComp = ({
+  PlatID,
   Name,
   Rating,
   Director,
@@ -15,17 +16,29 @@ const CardDisplayComp = ({
   Lyricist,
   Singer,
   Season,
+  STYLES,
 }) => {
+  // useEffect(() => {
+  //   if (PlatID === '0') {
+  //     console.log('No Plat ID Found');
+  //   } else {
+  //     console.log(PlatID);
+  //   }
+  // }, [PlatID]);
   return (
     <div>
       <Card
         border='dark'
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          width: '25%',
-          height: '30%',
-        }}
+        style={
+          STYLES
+            ? STYLES
+            : {
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                width: '25%',
+                height: '30%',
+              }
+        }
       >
         <div>
           <img src={imgLink} alt='DDLJ' width='100%' height={180} />
@@ -46,7 +59,8 @@ const CardDisplayComp = ({
             {Platform ? <h6>Platform: {Platform} </h6> : <h6>null</h6>}
           </div>
         </Card.Body>
-      </Card>{' '}
+      </Card>
+
       <br />
     </div>
   );

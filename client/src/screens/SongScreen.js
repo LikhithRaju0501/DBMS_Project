@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
-import CardDisplayComp from '../components/CardDisplayComp';
+import CardDisplayComp from '../components/Movies_Songs/CardDisplayComp';
 import NavBarComp from '../components/NavBarComp';
 import axios from 'axios';
 import { Spinner, Button } from 'react-bootstrap';
@@ -9,11 +9,13 @@ import { Link } from 'react-router-dom';
 
 const SongScreen = ({ location }) => {
   const [Name, setName] = useState(null);
+  const [UserID, setUserID] = useState(null);
   const [Songs, setSongs] = useState(null);
 
   useEffect(() => {
-    const { name } = queryString.parse(location.search);
+    const { name, user_id } = queryString.parse(location.search);
     setName(name);
+    setUserID(user_id);
     //setName(name);
 
     //Getting Movies
@@ -30,7 +32,8 @@ const SongScreen = ({ location }) => {
 
   return (
     <div>
-      <NavBarComp Name={Name} />
+      <NavBarComp Name={Name} UserID={UserID} />
+
       <Link style={{ textDecoration: 'none' }} to='/SongAdd'>
         <Button style={{ marginLeft: 50 }} variant='success'>
           Add Song

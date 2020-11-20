@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
-import CardDisplayComp from '../components/CardDisplayComp';
+import CardDisplayComp from '../components/Movies_Songs/CardDisplayComp';
 import NavBarComp from '../components/NavBarComp';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
@@ -9,11 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const WebseriesScreen = ({ location }) => {
   const [Name, setName] = useState(null);
+  const [UserID, setUserID] = useState(null);
   const [Series, setSeries] = useState(null);
 
   useEffect(() => {
-    const { name } = queryString.parse(location.search);
+    const { name, user_id } = queryString.parse(location.search);
     setName(name);
+    setUserID(user_id);
 
     axios
       .get('http://localhost:4000/series')
@@ -27,7 +29,8 @@ const WebseriesScreen = ({ location }) => {
   }, [location]);
   return (
     <div>
-      <NavBarComp Name={Name} />
+      <NavBarComp Name={Name} UserID={UserID} />
+
       {Series ? (
         Series.map((serie) => (
           <Link

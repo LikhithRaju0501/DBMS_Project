@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import NavBarComp from '../components/NavBarComp';
-import CardDisplayComp from '../components/Movies_Songs/CardDisplayComp';
+import CardDisplayComp from '../../Movies_Songs/CardDisplayComp';
 import { Link } from 'react-router-dom';
-import queryString from 'query-string';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const HomeScreen = ({ location }) => {
-  const [Name, setName] = useState(null);
-  const [UserID, setUserID] = useState(null);
+const SubbedPlatMovies = ({ location, PlatID }) => {
   const [Movies, setMovies] = useState(null);
+  console.log(PlatID);
 
   useEffect(() => {
-    const { name, user_id } = queryString.parse(location.search);
-
-    setName(name);
-    setUserID(user_id);
-
     //Getting Movies
     axios
       .get('http://localhost:4000/movies')
@@ -30,15 +22,20 @@ const HomeScreen = ({ location }) => {
   }, [location]);
   return (
     <div>
-      <NavBarComp Name={Name} UserID={UserID} />
       {Movies ? (
-        Movies.map((movie) => (
+        Movies.filter((movie) => movie.P_ID === PlatID).map((movie) => (
           <Link
             key={movie.M_ID}
             to={`/description?movie=${movie.M_NAME}`}
             style={{ textDecoration: 'none' }}
           >
             <CardDisplayComp
+              STYLES={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                width: '50%',
+                height: '30%',
+              }}
               Director={movie.M_DIRECTOR}
               Writer={movie.M_WRITER}
               Name={movie.M_NAME}
@@ -61,4 +58,4 @@ const HomeScreen = ({ location }) => {
   );
 };
 
-export default HomeScreen;
+export default SubbedPlatMovies;

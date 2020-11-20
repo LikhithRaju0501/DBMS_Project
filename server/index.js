@@ -35,8 +35,15 @@ con.connect((err) => {
 
       con.query(sql, function (err, result) {
         if (err) res.send('ERROR');
+        //Else
+        var sqlNextStep = `SELECT * FROM USER WHERE USER_EMAIL = '${Email}'`;
+        con.query(sqlNextStep, function (err, result) {
+          if (err) res.send('ERROR');
+          console.log(result);
+          res.send(result);
+        });
         console.log('1 record inserted' + '  ' + res);
-        res.send(result);
+        // res.send(result);
       });
     });
 
@@ -83,6 +90,18 @@ con.connect((err) => {
       });
     });
 
+    //Fetching Subs
+    app.post('/mySubs', (req, res) => {
+      var UserID = req.body.theUserID;
+      var sql = `SELECT * from subs where user_id=${UserID}`;
+
+      con.query(sql, function (err, result) {
+        if (err) res.send('ERROR');
+        console.log(result);
+        res.send(result);
+      });
+    });
+
     //Fetching Movies
     app.get('/movies', (req, res) => {
       var sql = `SELECT * FROM movies`;
@@ -119,7 +138,7 @@ con.connect((err) => {
     //Fetching Description for Series
     app.post('/descriptionSeries', (req, res) => {
       var Name = req.body.theMovie;
-      var sql = `select s_name,s_image,s_desc, s_id, s_cast from series where s_name = '${Name}'`;
+      var sql = `select s_name,s_image,s_desc, s_id, s_cast, p_id from series where s_name = '${Name}'`;
 
       con.query(sql, function (err, result) {
         if (err) res.send('ERROR');
@@ -131,7 +150,7 @@ con.connect((err) => {
     //Fetching Description for Movies
     app.post('/description', (req, res) => {
       var Name = req.body.theMovie;
-      var sql = `select m_name,m_image,m_desc, m_id from movies where m_name = '${Name}'`;
+      var sql = `select m_name,m_image,m_desc, m_id, p_id from movies where m_name = '${Name}'`;
 
       con.query(sql, function (err, result) {
         if (err) res.send('ERROR');

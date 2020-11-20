@@ -4,13 +4,16 @@ import queryString from 'query-string';
 
 const AboutScreen = ({ location }) => {
   const [Name, setName] = useState(null);
+  const [UserID, setUserID] = useState(null);
+
   useEffect(() => {
-    const { name } = queryString.parse(location.search);
+    const { name, user_id } = queryString.parse(location.search);
     setName(name);
+    setUserID(user_id);
   }, [location]);
   return (
     <div>
-      <NavBarComp Name={Name} />
+      <NavBarComp Name={Name} UserID={UserID} />
       <div
         style={{
           fontFamily: 'Courgette',

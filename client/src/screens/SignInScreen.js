@@ -40,10 +40,14 @@ const SignInScreen = () => {
               'We are facing a Problem ,EmailID already has a acoount(Try to Login) '
             );
           } else {
+            const user_id = res.data[0].USER_ID;
             setName('');
             setEmail('');
             setPassword('');
-            window.location.assign(`http://localhost:3000/Home?name=${Name}`);
+            window.location.assign(
+              `http://localhost:3000/MySubbed?name=${Name}&user_id=${user_id}`
+            );
+            console.log('Signed Up');
           }
         })
         .catch((err) => {
@@ -65,15 +69,18 @@ const SignInScreen = () => {
         if (res.data === 'ERROR') {
           console.log('ERROR CAUUUUGTH');
         } else {
-          setName('');
-          setEmail('');
-          setPassword('');
+          // setName('');
+          // setEmail('');
+          // setPassword('');
           console.log(res.data[0].USER_PASSWORD);
           const user_pass = res.data[0].USER_PASSWORD;
           const user_name = res.data[0].USER_NAME;
+          const user_id = res.data[0].USER_ID;
           if (user_pass === Password && user_name === Name) {
-            console.log('Fine');
-            window.location.assign(`http://localhost:3000/Home?name=${Name}`);
+            console.log(user_id);
+            window.location.assign(
+              `http://localhost:3000/MySubbed?name=${Name}&user_id=${user_id}`
+            );
           } else {
             console.log('Incorrect Pass');
             alert('Incorrect Credentials');
@@ -90,21 +97,21 @@ const SignInScreen = () => {
 
   return (
     <Card border='dark' style={styles}>
-      <Card.Header style={{ backgroundColor: '#c8d6e5' }}>
+      <Card.Header style={{ backgroundColor: '#c8d6e5', width: '100%' }}>
         <HeadingComp />
       </Card.Header>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         <Lottie
-          style={{ width: '80%', marginLeft: 40 }}
+          style={{ width: '80%', marginLeft: 70 }}
           animationData={movieanime}
         />
         <Lottie
-          style={{ width: '80%', marginLeft: 40 }}
+          style={{ width: '80%', marginLeft: 70 }}
           animationData={music}
         />
       </div>
       <hr />
-      <Card.Body>
+      <Card.Body style={{ width: '50%' }}>
         <Form.Text className='text-muted'>
           All the Fields are Case Sensitive
         </Form.Text>{' '}
@@ -150,8 +157,8 @@ const SignInScreen = () => {
   );
 };
 
-const backImage =
-  'https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/03/Popcorn_Time_interface-1068x578.jpg';
+// const backImage =
+//   'https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/03/Popcorn_Time_interface-1068x578.jpg';
 
 const styles = {
   width: '50%',
