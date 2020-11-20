@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import queryString from 'query-string';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SubbedPlatMovies from './SubbedComps/SubbedPlatMovies';
+import SubbedPlatWebseries from './SubbedComps/SubbedPlatWebseries';
 
 const SubbedMoviePlatform = ({ PlatID, location }) => {
   return (
@@ -28,7 +29,7 @@ const SubbedMoviePlatform = ({ PlatID, location }) => {
               margin: 'auto',
             }}
           >
-            <Card.Body>Hello! I'm another body</Card.Body>
+            <SubbedPlatWebseries PlatID={PlatID} />
           </Accordion.Collapse>
         </Card>
       </Accordion>

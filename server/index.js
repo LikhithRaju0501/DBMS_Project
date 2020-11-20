@@ -34,16 +34,21 @@ con.connect((err) => {
            '${Password}')`;
 
       con.query(sql, function (err, result) {
-        if (err) res.send('ERROR');
+        if (err) {
+          res.send('ERROR');
+        }
         //Else
-        var sqlNextStep = `SELECT * FROM USER WHERE USER_EMAIL = '${Email}'`;
-        con.query(sqlNextStep, function (err, result) {
-          if (err) res.send('ERROR');
-          console.log(result);
-          res.send(result);
-        });
-        console.log('1 record inserted' + '  ' + res);
-        // res.send(result);
+        else {
+          var sqlNextStep = `SELECT * FROM USER WHERE USER_EMAIL = '${Email}'`;
+          con.query(sqlNextStep, function (err, result) {
+            if (err) res.send('ERROR');
+            //console.log(result);
+            res.send(result);
+          });
+        }
+
+        //console.log('1 record inserted' + '  ' + res);
+        //res.send(result);
       });
     });
 
@@ -69,7 +74,7 @@ con.connect((err) => {
     );`;
       con.query(sql, function (err, result) {
         if (err) res.send('ERROR');
-        console.log('1 record inserted' + '  ' + res);
+        // console.log('1 record inserted' + '  ' + res);
         res.send(result);
       });
     });
@@ -85,7 +90,6 @@ con.connect((err) => {
 
       con.query(sql, function (err, result) {
         if (err) res.send('ERROR');
-        console.log(result);
         res.send(result);
       });
     });
