@@ -14,24 +14,12 @@ const SubscribeForm = ({ location }) => {
 
     setUserID(user_id);
   }, [location, Name]);
-  const subscribeHandler = (plat_id) => {
-    alert(plat_id);
-  };
-
-  const unsubscribeHandler = (plat_id) => {
-    alert(plat_id);
-  };
 
   return (
     <div>
       <NavBarComp Name={Name} UserID={UserID} />
 
-      <UserSubbedPlats
-        Name={Name}
-        UserID={UserID}
-        subscribeHandler={subscribeHandler}
-        unsubscribeHandler={unsubscribeHandler}
-      />
+      <UserSubbedPlats Name={Name} UserID={UserID} />
     </div>
   );
 };

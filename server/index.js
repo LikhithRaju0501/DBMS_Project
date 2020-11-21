@@ -129,6 +129,23 @@ con.connect((err) => {
       });
     });
 
+    //UnSubscribing Platform
+    app.post('/UnSubPlat', (req, res) => {
+      var UserID = req.body.theUserID;
+      var PlatformID = req.body.thePlatformID;
+
+      var sql = `delete from subs where P_ID=${PlatformID} and USER_ID=${UserID};`;
+
+      con.query(sql, function (err, result) {
+        if (err) {
+          res.send(err);
+        } else {
+          console.log(result);
+          res.send(result);
+        }
+      });
+    });
+
     //Fetching Movies
     app.get('/movies', (req, res) => {
       var sql = `SELECT * FROM movies`;

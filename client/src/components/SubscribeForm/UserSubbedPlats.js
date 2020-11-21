@@ -10,6 +10,7 @@ const UserSubbedPlats = ({ UserID, Name }) => {
   const [Jio, setJio] = useState(0);
   const [ShowModal, setShowModal] = useState(false);
   const [PlatName, setPlatName] = useState(false);
+  const [IsUnsub, setIsUnsub] = useState(false);
   const [PlatformID, setPlatformID] = useState(0);
 
   useEffect(() => {
@@ -49,6 +50,22 @@ const UserSubbedPlats = ({ UserID, Name }) => {
       console.log('Jio  to be sub');
       setPlatformID(4);
     }
+    setIsUnsub(true);
+    setShowModal(true);
+    setPlatName(PlatName);
+  };
+
+  const openModalUnsub = (PlatName) => {
+    if (PlatName === 'Amazon') {
+      setPlatformID(1);
+    } else if (PlatName === 'Netflix') {
+      setPlatformID(2);
+    } else if (PlatName === 'Spotify') {
+      setPlatformID(3);
+    } else {
+      setPlatformID(4);
+    }
+    setIsUnsub(false);
     setShowModal(true);
     setPlatName(PlatName);
   };
@@ -68,21 +85,27 @@ const UserSubbedPlats = ({ UserID, Name }) => {
       <div style={{ marginLeft: 500, marginRight: 'auto' }}>
         {' '}
         {Amazon === 1 ? (
-          <Button variant='success'>Amazon</Button>
+          <Button variant='success' onClick={() => openModalUnsub('Amazon')}>
+            Amazon
+          </Button>
         ) : (
           <Button variant='danger' onClick={() => openModal('Amazon')}>
             Amazon
           </Button>
         )}{' '}
         {Netflix === 1 ? (
-          <Button variant='success'>Netflix</Button>
+          <Button variant='success' onClick={() => openModalUnsub('Netflix')}>
+            Netflix
+          </Button>
         ) : (
           <Button variant='danger' onClick={() => openModal('Netflix')}>
             Netflix
           </Button>
         )}{' '}
         {Spotify === 1 ? (
-          <Button variant='success'>Spotify</Button>
+          <Button variant='success' onClick={() => openModalUnsub('Spotify')}>
+            Spotify
+          </Button>
         ) : (
           <Button variant='danger' onClick={() => openModal('Spotify')}>
             Spotify
@@ -90,7 +113,9 @@ const UserSubbedPlats = ({ UserID, Name }) => {
         )}
         {'  '}
         {Jio === 1 ? (
-          <Button variant='success'>Jio Saavn</Button>
+          <Button variant='success' onClick={() => openModalUnsub('Jio Saavn')}>
+            Jio Saavn
+          </Button>
         ) : (
           <Button variant='danger' onClick={() => openModal('Jio Saavn')}>
             Jio Saavn
@@ -98,6 +123,7 @@ const UserSubbedPlats = ({ UserID, Name }) => {
         )}
       </div>
       <ModalSub
+        IsUnsub={IsUnsub}
         closeModal={closeModal}
         ShowModal={ShowModal}
         PlatName={PlatName}

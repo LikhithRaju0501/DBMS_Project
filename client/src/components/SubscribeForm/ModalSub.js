@@ -5,6 +5,7 @@ import { Input } from 'rsuite';
 import axios from 'axios';
 
 const ModalSub = ({
+  IsUnsub,
   ShowModal,
   closeModal,
   PlatName,
@@ -12,7 +13,7 @@ const ModalSub = ({
   UserID,
   Name,
 }) => {
-  console.log(Name);
+  console.log(IsUnsub);
   const [Review, setReview] = useState(null);
   const [Stars, setStars] = useState(null);
   const subscribePlatform = () => {
@@ -22,6 +23,21 @@ const ModalSub = ({
         thePlatformID: PlatformID,
         theReview: Review,
         theStars: Stars,
+      })
+      .then((res) => {
+        window.location.assign(
+          `http://localhost:3000/MySubbed?name=${Name}&user_id=${UserID}`
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const unsubscribePlatform = () => {
+    axios
+      .post('http://localhost:4000/UnSubPlat', {
+        theUserID: UserID,
+        thePlatformID: PlatformID,
       })
       .then((res) => {
         window.location.assign(
@@ -44,22 +60,41 @@ const ModalSub = ({
       <Modal show={ShowModal} onHide={closeModal}>
         <Modal.Header></Modal.Header>
         <Modal.Body>
-          <h2>Do you want to subscribe {PlatName}?</h2>
-          <Input
-            onChange={(event) => reviewChangeHandler(event)}
-            style={{ width: 300 }}
-            placeholder='Review'
-          />{' '}
-          <br />
-          <Input
-            onChange={(event) => starsChangeHandler(event)}
-            style={{ width: 100 }}
-            placeholder='Stars of 10'
-          />{' '}
-          <br />
-          <Button variant='info' onClick={() => subscribePlatform()}>
-            Subscribe
-          </Button>
+          {IsUnsub ? (
+            <div>
+              <h2>Do you want to Subscribe {PlatName}?</h2>
+              <Input
+                onChange={(event) => reviewChangeHandler(event)}
+                style={{ width: 300 }}
+                placeholder='Review'
+              />{' '}
+              <br />
+              <Input
+                onChange={(event) => starsChangeHandler(event)}
+                style={{ width: 100 }}
+                placeholder='Stars of 10'
+              />{' '}
+              <br />
+              <Button variant='info' onClick={() => subscribePlatform()}>
+                Subscribe
+              </Button>{' '}
+              <Button variant='dark' onClick={() => closeModal()}>
+                Cancel
+              </Button>
+            </div>
+          ) : (
+            <div>
+              <h2>Do you want to Unsubscribe {PlatName}?</h2>
+              <br />
+              <Button variant='warning' onClick={() => unsubscribePlatform()}>
+                UnSubscribe
+              </Button>
+              {'  '}
+              <Button variant='dark' onClick={() => closeModal()}>
+                Cancel
+              </Button>
+            </div>
+          )}
         </Modal.Body>
       </Modal>
     </div>

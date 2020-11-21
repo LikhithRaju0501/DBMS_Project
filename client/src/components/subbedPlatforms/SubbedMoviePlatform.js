@@ -10,16 +10,24 @@ const SubbedMoviePlatform = ({ PlatID, location }) => {
     <div>
       <Accordion defaultActiveKey='0' style={{ display: 'flex' }}>
         <Card style={{ flex: 1 }}>
-          <Accordion.Toggle as={Card.Header} eventKey='0'>
-            <div>Movies</div>
+          <Accordion.Toggle
+            as={Card.Header}
+            eventKey='0'
+            style={{ backgroundColor: '#2c3e50' }}
+          >
+            <div style={{ marginLeft: '50%', color: 'white' }}>Movies</div>
           </Accordion.Toggle>
           <Accordion.Collapse eventKey='0' style={{ width: '100%' }}>
             <SubbedPlatMovies PlatID={PlatID} />
           </Accordion.Collapse>
         </Card>
         <Card style={{ flex: 1 }}>
-          <Accordion.Toggle as={Card.Header} eventKey='1'>
-            <div>Web Series</div>
+          <Accordion.Toggle
+            as={Card.Header}
+            eventKey='1'
+            style={{ backgroundColor: '#2c3e50' }}
+          >
+            <div style={{ marginLeft: '50%', color: 'white' }}>Web Series</div>
           </Accordion.Toggle>
           <Accordion.Collapse
             eventKey='1'
