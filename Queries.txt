@@ -1,0 +1,502 @@
+CREATE DATABASE MOVIE_MUSIC;
+
+USE MOVIE_MUSIC;
+
+CREATE TABLE USER(
+    USER_ID INT(6) NOT NULL AUTO_INCREMENT,
+    USER_NAME VARCHAR(25),
+    USER_EMAIL VARCHAR(50) NOT NULL UNIQUE,
+    USER_PASSWORD VARCHAR(15),
+    PRIMARY KEY (USER_ID)
+);
+
+INSERT INTO USER(USER_NAME, USER_EMAIL, USER_PASSWORD) VALUES (
+    'RACHIT',
+    'RACHITPBOHARA123@GMAIL.COM',
+    '1234567'
+);
+
+INSERT INTO USER(USER_NAME, USER_EMAIL, USER_PASSWORD) VALUES (
+    'LIKHITH',
+    'LIKHITHRAJU@GMAIL.COM',
+    '12345678'
+);
+
+CREATE TABLE PLATFORM(
+    P_ID INT(4) NOT NULL AUTO_INCREMENT,
+    P_NAME VARCHAR(50),
+    P_DESC VARCHAR(500),
+    P_MON VARCHAR(20),
+    P_YEAR VARCHAR(20),
+    PRIMARY KEY (P_ID)
+);
+
+INSERT INT0 PLATFORM (P_NAME, P_DESC, P_MON, P_YEAR) VALUES (
+    'AMAZON PRIME VIDEO',
+    'Amazon Prime is a subscription membership to Amazon that offers customers premium services for a yearly or monthly fee. Amazon Prime provides discounts on shipping, a free membership to Prime Video, Twitch Prime, Amazon Drive and thirty minutes early access to Lightning Deals for a yearly subscription fee.',
+    'Rs 129',
+    'Rs 999'
+);
+
+INSERT INTO PLATFORM (P_NAME, P_DESC, P_MON, P_YEAR) VALUES (
+    'NETFLIX',
+    'Netflix, Inc. is a streaming entertainment service company, which provides subscription service streaming movies and television episodes over the Internet and sending DVDs by mail. It operates through the following segments: Domestic Streaming, International Streaming and Domestic DVD.',
+    'Rs199 to Rs999',
+    'Rs2388 to Rs9588'
+);
+
+
+INSERT INTO PLATFORM (P_NAME, P_DESC, P_MON, P_YEAR)) VALUES (
+    'SPOTIFY',
+    'Spotify is a digital music, podcast, and video streaming service that gives you access to millions of songs and other content from artists all over the world. Basic functions such as playing music are totally free, but you can also choose to upgrade to Spotify Premium. ... Build collections of music.',
+    'Rs 179',
+    'Rs 699'
+);
+
+INSERT INTO PLATFORM (P_NAME, P_DESC, P_MON, P_YEAR)) VALUES (
+    'JIO SAAVN',
+    'The companys award-winning iOS and Android mobile products include proprietary phonetic search, dynamic bit rate streaming, global native ad-serving, unique radio algorithms, high performance infrastructure, and industry-leading design. With JioSaavn Pro, users can listen to music ad-free and offline.'
+    'Rs 99',
+    'Rs 399'
+);
+
+CREATE TABLE MOVIES (
+    M_ID INT(6) NOT NULL AUTO_INCREMENT,
+    M_NAME VARCHAR(50),
+    M_DESC VARCHAR(500),
+    M_DUR VARCHAR(10),
+    M_YEAR VARCHAR(4),
+    M_IMAGE VARCHAR(500),
+    M_CAST VARCHAR(500),
+    M_DIRECTOR VARCHAR(50),
+    M_WRITER VARCHAR(50),
+    M_RATING VARCHAR(4),
+    P_ID INT(4),
+    PRIMARY KEY (M_ID),
+    FOREIGN KEY (P_ID) REFERENCES PLATFORM(P_ID)
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Parasite',
+    'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.',
+    '2hr 12min',
+    '2019',
+    'https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Kang-ho Song, Sun-kyun Lee, Yeo-jeong Jo',
+    'Bong Joon Ho',
+    'Bong Joon Ho',
+    '8.6',
+    1
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Shakuntala Devi',
+    'Shakuntala Devi, a mathematicians journey to become The Human Computer and her relationship with her daughter',
+    '1hr 41min',
+    '2020',
+    'https://assets.thehansindia.com/h-upload/2020/07/15/983879-shakuntala-devi.webp',
+    'Vidya Balan, Sanya Malhotra, Jishu Sengupta',
+    'Anu Menon',
+    'Nayanika Mahtani',
+    '6.1',
+    1
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Penguin',
+    'It is a spine chilling tale of a pregnant mother who sets out on a dangerous mission to unravel the mystery and save her loved ones.',
+    '2hr 12min',
+    '2020',
+    'https://images-na.ssl-images-amazon.com/images/I/91Vd37pqc+L._RI_.jpg',
+    'Keerthy Suresh, Linga, Madhampatty Rangaraj',
+    'Eashvar Karthic',
+    'Eashvar Karthic',
+    '4.6',
+    1
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'The Imitation Game',
+    'During World War II, the English mathematical genius Alan Turing tries to crack the German Enigma code with help from fellow mathematicians.',
+    '1hr 54min',
+    '2014',
+    'https://www.scoonews.com/uploads/news_images/115837302541583730254.jpg',
+    'Benedict Cumberbatch, Keira Knightley, Matthew Goode',
+    'Morten Tyldum',
+    'Andrew Hodges',
+    '8.0',
+    1
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Furious 7',
+    'Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.',
+    '2hr 17min',
+    '2015',
+    'https://m.media-amazon.com/images/M/MV5BMTQxOTA2NDUzOV5BMl5BanBnXkFtZTgwNzY2MTMxMzE@._V1_UY1200_CR64,0,630,1200_AL_.jpg',
+    'Vin Diesel, Paul Walker, Dwayne Johnson',
+    'James Wan',
+    'Chris Morgan',
+    '7.1',
+    1
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Enola Holmes',
+    'When Enola Holmes-Sherlocks teen sister-discovers her mother missing, she sets off to find her, becoming a super-sleuth in her own right as she outwits her famous brother and unravels a dangerous conspiracy around a mysterious young Lord.',
+    '2hr 3min',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BZjNkNzk0ZjEtM2M1ZC00MmMxLTlmOWEtNWRlZTc1ZTUyNzY4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Millie Bobby Brown, Henry Cavill, Sam Claflin',
+    'Harry Bradbeer',
+    'Jack Thorne',
+    '6.6',
+    2
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Gunjan Saxena: The Kargil Girl',
+    'Inspired by the life of a fearless young officer who made history by becoming the first Indian female Air Force officer to fly in a combat zone during the 1999 Kargil War.',
+    '1hr 51min',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BN2JmMjczOGEtODg3MS00MGYzLWE5OWYtOTBlNGJmODQyOTE4XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY268_CR1,0,182,268_AL__QL50.jpg',
+    'Janhvi Kapoor, Pankaj Tripathi, Angad Bedi',
+    'Sharan Sharma',
+    'Nikhil Mehrotra',
+    '5.2',
+    2
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Begin Again',
+    'A chance encounter between a down-and-out music-business executive and a young singer-songwriter, new to Manhattan, turns into a promising collaboration between the two talents.',
+    '1hr 44min',
+    '2013',
+    'https://upload.wikimedia.org/wikipedia/en/b/bd/Begin_Again_film_poster_2014.jpg',
+    'Keira Knightley, Mark Ruffalo, Adam Levine',
+    'John Carney',
+    'John Carney',
+    '7.4',
+    2
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Mohenjo Daro',
+    'In 2016 BC, a kind farmer leads an uprising in the city of Mohenjo Daro.',
+    '2hr 35min',
+    '2016',
+    'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2016/08/12/491049-mohenjo-daro-2.jpg',
+    'Hrithik Roshan, Pooja Hegde, Kabir Bedi',
+    'Ashutosh Gowariker',
+    'Ashutosh Gowariker',
+    '5.7',
+    2
+);
+
+INSERT INTO MOVIES (M_NAME, M_DESC, M_DUR, M_YEAR, M_IMAGE, M_CAST, M_DIRECTOR, M_WRITER, M_RATING, P_ID) VALUES (
+    'Ala Vaikunthapurramuloo',
+    'A jealous clerk secretly switches his newborn son with his millionaire friends temporarily stillborn son.',
+    '2hr 43min',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BMWU1YmJjYTYtMWE2Ny00YjlkLThlZWEtYmQ5YjE1NjZjMzgwXkEyXkFqcGdeQXVyODgwMjQ1MzQ@._V1_UY268_CR3,0,182,268_AL__QL50.jpg',
+    'Allu Arjun, Pooja Hegde, Tabu',
+    'Trivikram Srinivas',
+    'Trivikram Srinivas',
+    '7.1',
+    '2'
+);
+
+CREATE TABLE SERIES (
+    S_ID INT(6) NOT NULL AUTO_INCREMENT,
+    S_NAME VARCHAR(50),
+    S_DESC VARCHAR(500),
+    S_SEASON VARCHAR(10),
+    S_YEAR VARCHAR(4),
+    S_IMAGE VARCHAR(500),
+    S_CAST VARCHAR(500),
+    S_RATING VARCHAR(4),
+    P_ID INT(4),
+    PRIMARY KEY (S_ID),
+    FOREIGN KEY (P_ID) REFERENCES PLATFORM(P_ID)  
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Breathe: Into the Shadows',
+    'A fathers love can save a life... or take one, sets the tone for a dark and gritty series.',
+    '1',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BMDI0N2NjNzctY2RkOC00OWNkLTg2MzMtMGU0YTUzNGJkYmNlXkEyXkFqcGdeQXVyNTM1MzM4Nzk@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Abhishek Bachchan, Nithya Menen, Amit Sadh',
+    '7.7',
+    1
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Bandish Bandits',
+    'Indian classical singer Radhe and pop star Tamanna. Despite their contrasting personalities, the two set out together on a journey of self-discovery to see if opposites, though they might attract, can also adapt and go the long haul.',
+    '1',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BOWY3NjY1MTMtZmNiZS00OGVkLThkMjYtMWVjYzFiZDJhMmQ5XkEyXkFqcGdeQXVyMTE1MTc3MTQw._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Ritwik Bhowmik, Shreya Chaudhary, Naseeruddin Shah',
+    '8.7',
+    1
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Mirzapur',
+    'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.',
+    '2',
+    '2019',
+    'https://static.india.com/wp-content/uploads/2020/10/mirzapur-2-twitter-review.jpg',
+    'Pankaj Tripathi, Ali Fazal, Divyendu Sharma, Shweta Tripathi, Isha Talwar',
+    '8.5',
+    1
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'The Family Man',
+    'A working man from the National Investigation Agency tries to protect the nation from terrorism, but he also needs to keep his family safe from his secret job.',
+    '1',
+    '2019',
+    'https://m.media-amazon.com/images/M/MV5BZjZkY2YxYTgtYmVkOC00NTgwLThjY2YtN2Y1ZWFlZmVhOTQ5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY268_CR5,0,182,268_AL__QL50.jpg',
+    'Manoj Bajpayee,Priymani, Sharib Hashmi, Vedant Sinha',
+    '8.6',
+    1
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Panchayat',
+    'A comedy-drama, which captures the journey of an engineering graduate Abhishek, who for lack of a better job option joins as secretary of a Panchayat office in a remote village of Uttar Pradesh.',
+    '1',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BMTllYzQ0MzctZTI4Ny00YTE2LTkzYjktMTc4ZWE2MDUxNzk2XkEyXkFqcGdeQXVyNzEyNTM4MTU@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Jitendra Kumar, Raghuvir Yadav, Chandan Roy',
+    '8.7',
+    1
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Sacred Games',
+    'A link in their pasts leads an honest cop to a fugitive gang boss, whose cryptic warning spurs the officer on a quest to save Mumbai from cataclysm.',
+    '2',
+    '2019',
+    'https://m.media-amazon.com/images/M/MV5BMjJlMjJlMzYtNmU5Yy00N2MwLWJmMjEtNWUwZWIyMGViZDgyXkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Saif Ali Khan, Nawazuddin Siddiqui, Neeraj Kabi',
+    '8.7',
+    2
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Money Heist',
+    'An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.',
+    '5',
+    '2017',
+    'https://m.media-amazon.com/images/M/MV5BZDcxOGI0MDYtNTc5NS00NDUzLWFkOTItNDIxZjI0OTllNTljXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Úrsula Corberó, Álvaro Morte, Itziar Ituño',
+    '8.4',
+    2
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Breaking Bad',
+    'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family future.',
+    '5',
+    '2008',
+    'https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTYtZTA3ZWFkODRkNmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR5,0,182,268_AL__QL50.jpg',
+    'Bryan Cranston, Aaron Paul, Anna Gunn',
+    '9.5',
+    2
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Iron Fist',
+    'A young man is bestowed with incredible martial arts skills and a mystical force known as the Iron Fist.',
+    '2',
+    '2017',
+    'https://m.media-amazon.com/images/M/MV5BMjI5Mjg1NDcyOV5BMl5BanBnXkFtZTgwMjAxOTQ5MTI@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    'Finn Jones, Jessica Henwick, Jessica Stroup',
+    '6.5',
+    2
+);
+
+INSERT INTO SERIES (S_NAME, S_DESC, S_SEASON, S_YEAR, S_IMAGE, S_CAST, S_RATING, P_ID) VALUES (
+    'Lucifer',
+    'Lucifer Morningstar has decided he had enough of being the dutiful servant in Hell and decides to spend some time on Earth to better understand humanity. He settles in Los Angeles - the City of Angels.',
+    '5',
+    '2016',
+    'https://m.media-amazon.com/images/M/MV5BNzY1YjIxOGMtOTAyZC00YTcyLWFhMzQtZTJkYTljYzU0MGRlXkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_UY268_CR0,0,182,268_AL__QL50.jpg',
+    'Tom Ellis, Lauren German, Kevin Alejandro',
+    '8.2',
+    2
+);
+
+CREATE TABLE SONGS (
+    SONG_ID INT(6) NOT NULL AUTO_INCREMENT,
+    SONG_NAME VARCHAR(50),
+    SONG_SINGER VARCHAR(50),
+    SONG_LYRICIST VARCHAR(50),
+    SONG_MUSIC VARCHAR(50),
+    SONG_DURATION VARCHAR(10),
+    SONG_YEAR VARCHAR(4),
+    SONG_IMAGE VARCHAR(500),
+    P_ID INT(4),
+    PRIMARY KEY (SONG_ID),
+    FOREIGN KEY (P_ID) REFERENCES PLATFORM(P_ID)
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Haan Main Galat',
+    'Arijit Singh',
+    'Irshad Kamil',
+    'Pritam',
+    '3min 3sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BMjNhYzc0YmItOGZjOS00NWJlLWE3ZTEtNGI3MzAxNGYwZWExXkEyXkFqcGdeQXVyMTA5NzIyMDY5._V1_UY268_CR9,0,182,268_AL__QL50.jpg',
+    4 
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Dus Bahane 2.0',
+    'Vishal Dadlani',
+    'Shekhar',
+    'Vishal Dadlani',
+    '3min 40sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BZTAxNWE2MDItZWFlNS00MWM1LWI1ZjQtN2I5NDBhNWYzZjNhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY268_CR2,0,182,268_AL__QL50.jpg',
+    3
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Shayad',
+    'Arijit Singh',
+    'Irshad Kamil',
+    'Pritam',
+    '3min 10sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BMjNhYzc0YmItOGZjOS00NWJlLWE3ZTEtNGI3MzAxNGYwZWExXkEyXkFqcGdeQXVyMTA5NzIyMDY5._V1_UY268_CR9,0,182,268_AL__QL50.jpg',
+    4 
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Illegal Weapon 2.0',
+    'Garry Sandhu',
+    'Priya Saraiya',
+    'Tanishk Bagchi',
+    '2min 28sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BYjZlMTg1NDktNzI2My00Mjg2LTk3NzktZWQ5ZDJhYmJkNGExXkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    3
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Muqabla',
+    'Yash Narvekar',
+    'Shabbir Ahmed',
+    'Tanishk Bagchi',
+    '3min 5sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BYjZlMTg1NDktNzI2My00Mjg2LTk3NzktZWQ5ZDJhYmJkNGExXkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    4
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Garmi',
+    'Badshah',
+    'Badshah',
+    'Badshah',
+    '2min 40sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BYjZlMTg1NDktNzI2My00Mjg2LTk3NzktZWQ5ZDJhYmJkNGExXkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UX182_CR0,0,182,268_AL__QL50.jpg',
+    3
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Shaitan Ka Saala',
+    'Sohail Sen', 
+    'Vishal Dadlani',
+    'Farhad Samji',
+    '2min 48sec',
+    '2019',
+    'https://m.media-amazon.com/images/M/MV5BYjIyODM0OTAtMmYwNS00YTA1LTkwMjctYzcwZWFhZjcyMWM2XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UY268_CR2,0,182,268_AL__QL50.jpg',
+    4
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Humraah',
+    'Sachet Tandon',
+    'Kunaal Verma',
+    'Upside Down',
+    '5min 00sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BMDJiMDQyYTItZTA0NC00NmVlLTg3NGItMjQwOWI2ZjY0MmE5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UY268_CR9,0,182,268_AL__QL50.jpg',
+    3
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Bhankas',
+    'Bappi Lahiri',
+    'Shabbir Ahmed',
+    'Tanishk Bagchi',
+    '2mins 59sec',
+    '2020',
+    'https://m.media-amazon.com/images/M/MV5BZTAxNWE2MDItZWFlNS00MWM1LWI1ZjQtN2I5NDBhNWYzZjNhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY268_CR2,0,182,268_AL__QL50.jpg',
+    4
+);
+
+INSERT INTO SONGS (SONG_NAME, SONG_SINGER, SONG_LYRICIST, SONG_MUSIC, SONG_DURATION, SONG_YEAR, SONG_IMAGE, P_ID) VALUES (
+    'Naina Da Kya Kasoor',
+    'Amit Trivedi',
+    'Jaideep Sahni',
+    'Amit Trivedi',
+    '3min 39sec',
+    '2019', 
+    'https://m.media-amazon.com/images/M/MV5BZWZhMjhhZmYtOTIzOC00MGYzLWI1OGYtM2ZkN2IxNTI4ZWI3XkEyXkFqcGdeQXVyNDAzNDk0MTQ@._V1_UY268_CR1,0,182,268_AL__QL50.jpg',
+    3
+);
+
+SELECT USER_NAME FROM USER WHERE USER_EMAIL = 'RACHITPBOHARA123@GMAIL.COM' AND USER_PASSWORD = '1234567';
+
+CREATE TABLE SUBS (
+    USER_ID INT(6),
+    P_ID INT(4),
+    USER_REVIEW VARCHAR(500),
+    USER_STAR VARCHAR(5),
+    PRIMARY KEY (USER_ID, P_ID),
+    FOREIGN KEY (USER_ID) REFERENCES USER(USER_ID),
+    FOREIGN KEY (P_ID) REFERENCES PLATFORM(P_ID) 
+);
+
+INSERT INTO SUBS VALUES (
+    1,
+    1,
+    'GOOD QUAILITY CONTENT ON ALMOST EVERY CATEGORY',
+    '9.1'
+);
+
+INSERT INTO SUBS VALUES (
+    1,
+    3,
+    'SOUND QUALITY AND BASE WAS ARE TO THE MARK.',
+    '8.5'
+);
+
+INSERT INTO SUBS VALUES (
+    2,
+    2,
+    'ALL STAND-UP SHOWS ARE AWESOME.',
+    '9.0'
+);
+
+INSERT INTO  SUBS VALUES (
+    3,
+    4,
+    'GOOD AND CHEAP FOR LISTENING VARIOUS SONG',
+    '8.9' 
+);
+
+INSERT INTO SUBS VALUES (
+    4,
+    4,
+    'SOUND QUALITY WAS AVERAGE',
+    '7.1'
+);
