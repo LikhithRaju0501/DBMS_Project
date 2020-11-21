@@ -106,6 +106,29 @@ con.connect((err) => {
       });
     });
 
+    //Subscribing Platform
+    app.post('/SubPlat', (req, res) => {
+      var UserID = req.body.theUserID;
+      var PlatformID = req.body.thePlatformID;
+      var Review = req.body.theReview;
+      var Stars = req.body.theStars;
+      var sql = `INSERT INTO SUBS VALUES (
+        ${UserID},
+        ${PlatformID},
+        '${Review}',
+        '${Stars}'
+    );`;
+
+      con.query(sql, function (err, result) {
+        if (err) {
+          res.send(err);
+        } else {
+          console.log(result);
+          res.send(result);
+        }
+      });
+    });
+
     //Fetching Movies
     app.get('/movies', (req, res) => {
       var sql = `SELECT * FROM movies`;

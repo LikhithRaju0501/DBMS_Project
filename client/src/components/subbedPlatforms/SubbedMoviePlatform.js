@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-import queryString from 'query-string';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SubbedPlatMovies from './SubbedComps/SubbedPlatMovies';
 import SubbedPlatWebseries from './SubbedComps/SubbedPlatWebseries';

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardDisplayComp from '../Movies_Songs/CardDisplayComp';
-import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

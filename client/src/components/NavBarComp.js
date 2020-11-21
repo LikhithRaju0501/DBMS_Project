@@ -51,12 +51,12 @@ const NavBarComp = ({ Name, UserID }) => {
                 >
                   Subbed Platforms
                 </Link>{' '}
-                {/* <Link
-                  to={`/About?name=${Name}&user_id=${UserID}`}
+                <Link
+                  to={`/SubPlat?name=${Name}&user_id=${UserID}`}
                   style={{ textDecorationWidth: 'none' }}
                 >
-                  About
-                </Link>{' '} */}
+                  Subscribe Platforms
+                </Link>{' '}
                 <br />
                 <hr />
                 <Link to={`/`} style={{ textDecorationWidth: 'none' }}>

@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
-import Modal from 'react-bootstrap/Modal';
 
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,10 +14,6 @@ const SubbedCards = ({
   UserID,
   platID,
 }) => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <div
       style={{
