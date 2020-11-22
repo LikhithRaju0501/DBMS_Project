@@ -16,13 +16,10 @@ const SongScreen = ({ location }) => {
     const { name, user_id } = queryString.parse(location.search);
     setName(name);
     setUserID(user_id);
-    //setName(name);
 
-    //Getting Movies
     axios
       .get('http://localhost:4000/songs')
       .then((res) => {
-        console.log(res.data);
         setSongs(res.data);
       })
       .catch((err) => {

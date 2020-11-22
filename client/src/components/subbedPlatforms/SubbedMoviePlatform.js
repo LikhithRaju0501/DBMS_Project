@@ -8,7 +8,10 @@ import SubbedPlatWebseries from './SubbedComps/SubbedPlatWebseries';
 const SubbedMoviePlatform = ({ PlatID, location }) => {
   return (
     <div>
-      <Accordion defaultActiveKey='0' style={{ display: 'flex' }}>
+      <Accordion
+        defaultActiveKey='0'
+        style={{ display: 'flex', width: '90%', margin: 'auto' }}
+      >
         <Card style={{ flex: 1 }}>
           <Accordion.Toggle
             as={Card.Header}

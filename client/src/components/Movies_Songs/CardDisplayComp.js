@@ -18,13 +18,6 @@ const CardDisplayComp = ({
   Season,
   STYLES,
 }) => {
-  // useEffect(() => {
-  //   if (PlatID === '0') {
-  //     console.log('No Plat ID Found');
-  //   } else {
-  //     console.log(PlatID);
-  //   }
-  // }, [PlatID]);
   return (
     <div>
       <Card

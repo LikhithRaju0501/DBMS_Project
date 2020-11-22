@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SubbedPlatMovies = ({ location, PlatID }) => {
   const [Movies, setMovies] = useState(null);
-  console.log(PlatID);
 
   useEffect(() => {
     //Getting Movies

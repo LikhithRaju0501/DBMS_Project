@@ -15,7 +15,6 @@ const SubscribedContent = ({ location }) => {
       } else {
         setPlatID(2);
       }
-      console.log('Movies and Series');
     } else {
       setIsMoviePlatform(false);
       if (platID === '3') {

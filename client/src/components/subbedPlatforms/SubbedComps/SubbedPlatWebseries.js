@@ -7,12 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SubbedPlatWebseries = ({ location, PlatID }) => {
   const [Series, setSeries] = useState(null);
-  console.log(PlatID);
   useEffect(() => {
     axios
       .get('http://localhost:4000/series')
       .then((res) => {
-        console.log(res.data);
         setSeries(res.data);
       })
       .catch((err) => {

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Card, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Lottie from 'lottie-react';
-import amazon from './amazon.json';
-import netflix from './netflix.json';
+import amazon from '../animeFiles/amazon.json';
+import netflix from '../animeFiles/netflix.json';
 import axios from 'axios';
 
 const DescriptionComp = ({ Name }) => {
@@ -16,7 +16,6 @@ const DescriptionComp = ({ Name }) => {
         theMovie: Movie,
       })
       .then((res) => {
-        console.log(res.data);
         setDesc(res.data);
       })
       .catch((err) => {

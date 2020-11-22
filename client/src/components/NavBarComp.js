@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const NavBarComp = ({ Name, UserID }) => {
   return (
     <div style={{ marginLeft: 50, marginRight: 50 }}>
-      <Navbar bg='warning' expand='lg'>
+      <Navbar bg='info' expand='lg'>
         <Navbar.Brand>
           <motion.h2
             whileHover={{ scale: 1.1 }}
@@ -16,52 +16,62 @@ const NavBarComp = ({ Name, UserID }) => {
             animate={{ rotate: 360 }}
             transition={{ duration: 1.5 }}
           >
-            {Name}
+            <div style={{ color: '#dff9fb' }}>{Name}</div>
           </motion.h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
             <NavDropdown title='Check Out Others' id='basic-nav-dropdown'>
-              <div style={{ marginLeft: 10 }}>
+              <div style={{ marginLeft: 10, marginRight: 10 }}>
                 <Link
-                  to={`/Home?name=${Name}&user_id=${UserID}&platID=0`}
-                  style={{ textDecorationWidth: 'none' }}
+                  to={`/Home?name=${Name}&user_id=${UserID}`}
+                  style={{
+                    textDecoration: 'none',
+                  }}
                 >
                   Movies
                 </Link>{' '}
-                <br />
+                <br /> <NavDropdown.Divider />
                 <Link
                   to={`/Songs?name=${Name}&user_id=${UserID}`}
-                  style={{ textDecorationWidth: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
                   Songs
                 </Link>{' '}
                 <br />
+                <NavDropdown.Divider />
                 <Link
                   to={`/WebSeries?name=${Name}&user_id=${UserID}`}
-                  style={{ textDecorationWidth: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
                   Web Series
                 </Link>{' '}
                 <br />
+                <NavDropdown.Divider />
                 <Link
                   to={`/MySubbed?name=${Name}&user_id=${UserID}`}
-                  style={{ textDecorationWidth: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
-                  Subbed Platforms
+                  My Subscriptions
                 </Link>{' '}
+                <br />
+                <NavDropdown.Divider />
                 <Link
                   to={`/SubPlat?name=${Name}&user_id=${UserID}`}
-                  style={{ textDecorationWidth: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
                   Subscribe Platforms
                 </Link>{' '}
                 <br />
-                <hr />
-                <Link to={`/`} style={{ textDecorationWidth: 'none' }}>
+                <NavDropdown.Divider />
+                <NavDropdown.Divider />
+                <Link to={`/`} style={{ textDecoration: 'none' }}>
                   Signout
                 </Link>{' '}
+                <br />
+                <NavDropdown.Divider />
+                <NavDropdown.Divider />
               </div>
             </NavDropdown>
           </Nav>
@@ -73,42 +83,3 @@ const NavBarComp = ({ Name, UserID }) => {
 };
 
 export default NavBarComp;
-
-/* <NavDropdown.Item>
-                <Link
-                  to={`/Home?name=${Name}`}
-                  style={{ textDecorationWidth: 'none' }}
-                >
-                  Movies
-                </Link>{' '}
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link
-                  to={`/Songs?name=${Name}`}
-                  style={{ textDecorationWidth: 'none' }}
-                >
-                  Songs
-                </Link>{' '}
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link
-                  to={`/WebSeries?name=${Name}`}
-                  style={{ textDecorationWidth: 'none' }}
-                >
-                  Web Series
-                </Link>{' '}
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link
-                  to={`/About?name=${Name}`}
-                  style={{ textDecorationWidth: 'none' }}
-                >
-                  About
-                </Link>{' '}
-              </NavDropdown.Item>
-              <hr />
-              <NavDropdown.Item>
-                <Link to={`/`} style={{ textDecorationWidth: 'none' }}>
-                  Signout
-                </Link>{' '}
-              </NavDropdown.Item> */

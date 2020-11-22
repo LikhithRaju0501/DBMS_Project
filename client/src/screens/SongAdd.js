@@ -26,7 +26,6 @@ const SongAdd = () => {
     ) {
       alert('No Empty Inputs Please');
     } else {
-      console.log('Clicked');
       axios
         .post('http://localhost:4000/SongAdd', {
           theName: Name,
@@ -38,7 +37,6 @@ const SongAdd = () => {
           thePlatform: Platform,
         })
         .then((res) => {
-          console.log(res.data);
           Notification['success']({
             title: 'Success!!',
             description: (
@@ -56,31 +54,24 @@ const SongAdd = () => {
   };
 
   const nameChange = (event) => {
-    console.log(event.target.value);
     setName(event.target.value);
   };
   const singerChange = (event) => {
-    console.log(event.target.value);
     setSinger(event.target.value);
   };
   const lyricChange = (event) => {
-    console.log(event.target.value);
     setLyric(event.target.value);
   };
   const musicChange = (event) => {
-    console.log(event.target.value);
     setMusic(event.target.value);
   };
   const urlChange = (event) => {
-    console.log(event.target.value);
     setUrl(event.target.value);
   };
   const durChange = (event) => {
-    console.log(event.target.value);
     setDur(event.target.value);
   };
   const onPlatform = (event) => {
-    console.log(event);
     setPlatform(event);
   };
   const DropDownPart = (

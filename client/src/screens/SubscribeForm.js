@@ -10,7 +10,6 @@ const SubscribeForm = ({ location }) => {
   useEffect(() => {
     const { name, user_id } = queryString.parse(location.search);
     setName(name);
-    console.log(name);
 
     setUserID(user_id);
   }, [location, Name]);

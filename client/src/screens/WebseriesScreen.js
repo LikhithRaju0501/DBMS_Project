@@ -20,7 +20,6 @@ const WebseriesScreen = ({ location }) => {
     axios
       .get('http://localhost:4000/series')
       .then((res) => {
-        console.log(res.data);
         setSeries(res.data);
       })
       .catch((err) => {

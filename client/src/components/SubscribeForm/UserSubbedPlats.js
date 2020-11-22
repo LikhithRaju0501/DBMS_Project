@@ -38,16 +38,12 @@ const UserSubbedPlats = ({ UserID, Name }) => {
   }, [UserID]);
   const openModal = (PlatName) => {
     if (PlatName === 'Amazon') {
-      console.log('Amazon to be sub');
       setPlatformID(1);
     } else if (PlatName === 'Netflix') {
-      console.log('Netflix to be sub');
       setPlatformID(2);
     } else if (PlatName === 'Spotify') {
-      console.log('Spotify to be sub');
       setPlatformID(3);
     } else {
-      console.log('Jio  to be sub');
       setPlatformID(4);
     }
     setIsUnsub(true);
@@ -77,8 +73,26 @@ const UserSubbedPlats = ({ UserID, Name }) => {
     <div>
       <div style={{ float: 'right', marginRight: 50 }}>
         {' '}
-        <Button variant='success'>Subscribed</Button>{' '}
-        <Button variant='danger'>Unsubscribed</Button>
+        <Button
+          variant='success'
+          onClick={() =>
+            alert(
+              'This indicates that the platform is Subscribed and you can Unsubscribe it to unsee  its content'
+            )
+          }
+        >
+          Subscribed
+        </Button>{' '}
+        <Button
+          variant='danger'
+          onClick={() =>
+            alert(
+              'This indicates that the platform is Unubscribed and you can Subscribe it to see  its content'
+            )
+          }
+        >
+          Unsubscribed
+        </Button>
       </div>{' '}
       <br />
       <br /> <hr />

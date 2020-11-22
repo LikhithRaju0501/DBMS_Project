@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import HeadingComp from '../components/HeadingComp';
 import Lottie from 'lottie-react';
-import movieanime from '../components/movieanime.json';
-import music from '../components/music.json';
+import movieanime from '../animeFiles/movieanime.json';
+import music from '../animeFiles/music.json';
 
 const SignInScreen = () => {
   const [Name, setName] = useState('');
@@ -33,7 +33,6 @@ const SignInScreen = () => {
           thePassword: Password,
         })
         .then((res) => {
-          console.log(res.data);
           if (res.data === 'ERROR') {
             console.log('ERROR CAUUUUGTH');
             alert(
@@ -47,7 +46,6 @@ const SignInScreen = () => {
             window.location.assign(
               `http://localhost:3000/MySubbed?name=${Name}&user_id=${user_id}`
             );
-            console.log('Signed Up');
           }
         })
         .catch((err) => {
@@ -67,12 +65,7 @@ const SignInScreen = () => {
       })
       .then((res) => {
         if (res.data === 'ERROR') {
-          console.log('ERROR CAUUUUGTH');
         } else {
-          // setName('');
-          // setEmail('');
-          // setPassword('');
-          console.log(res.data[0].USER_PASSWORD);
           const user_pass = res.data[0].USER_PASSWORD;
           const user_name = res.data[0].USER_NAME;
           const user_id = res.data[0].USER_ID;
@@ -82,7 +75,6 @@ const SignInScreen = () => {
               `http://localhost:3000/MySubbed?name=${Name}&user_id=${user_id}`
             );
           } else {
-            console.log('Incorrect Pass');
             alert('Incorrect Credentials');
           }
         }
@@ -157,9 +149,6 @@ const SignInScreen = () => {
   );
 };
 
-// const backImage =
-//   'https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/03/Popcorn_Time_interface-1068x578.jpg';
-
 const styles = {
   width: '50%',
   alignItems: 'center',
@@ -169,5 +158,4 @@ const styles = {
   marginTop: 30,
   marginBottom: 'auto',
 };
-//https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRTYifwrxtxkRGy-adotqTGs2vE2Jmtt_cTdQ&usqp=CAU
 export default SignInScreen;

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import NavBarComp from '../components/NavBarComp';
 import queryString from 'query-string';
-import amazon from '../components/amazon.json';
-import netflix from '../components/netflix.json';
-import spotify from '../components/spotify.json';
-import Jio from '../components/Jio.json';
+import amazon from '../animeFiles/amazon.json';
+import netflix from '../animeFiles/netflix.json';
+import spotify from '../animeFiles/spotify.json';
+import Jio from '../animeFiles/Jio.json';
 import axios from 'axios';
 import SubbedCards from '../components/SubbedCards';
+import { Spinner } from 'react-bootstrap';
 
 const SubscribedScreen = ({ location }) => {
   const [Name, setName] = useState(null);
@@ -28,7 +29,6 @@ const SubscribedScreen = ({ location }) => {
         console.log(err);
       });
   }, [location, UserID]);
-  console.log(Subbed);
   return (
     <div>
       <NavBarComp Name={Name} UserID={UserID} />
@@ -89,7 +89,11 @@ const SubscribedScreen = ({ location }) => {
           </div>
         ))
       ) : (
-        <h1>Loading</h1>
+        <div>
+          <Spinner animation='border' style={{ marginLeft: 750 }} role='status'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        </div>
       )}
     </div>
   );

@@ -12,7 +12,6 @@ const SubbedSongPlatform = ({ PlatID }) => {
     axios
       .get('http://localhost:4000/songs')
       .then((res) => {
-        console.log(res.data);
         setSongs(res.data);
       })
       .catch((err) => {

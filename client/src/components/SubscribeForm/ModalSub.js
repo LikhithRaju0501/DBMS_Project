@@ -13,7 +13,6 @@ const ModalSub = ({
   UserID,
   Name,
 }) => {
-  console.log(IsUnsub);
   const [Review, setReview] = useState(null);
   const [Stars, setStars] = useState(null);
   const subscribePlatform = () => {
@@ -63,6 +62,7 @@ const ModalSub = ({
           {IsUnsub ? (
             <div>
               <h2>Do you want to Subscribe {PlatName}?</h2>
+              <p>Please tell us what you feel about {PlatName} below!!</p>
               <Input
                 onChange={(event) => reviewChangeHandler(event)}
                 style={{ width: 300 }}
