@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
-import CardDisplayComp from '../components/Movies_Songs/CardDisplayComp';
-import NavBarComp from '../components/NavBarComp';
 import axios from 'axios';
-import { Spinner, Button } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import RecipeReviewCard from '../components/Movies_Songs/CardMaterialUI';
+import './CSS/SignUpAbout.css';
+import SideNavBar from '../components/SideNavBar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const SongScreen = ({ location }) => {
   const [Name, setName] = useState(null);
@@ -28,36 +30,66 @@ const SongScreen = ({ location }) => {
   }, [location]);
 
   return (
-    <div>
-      <NavBarComp Name={Name} UserID={UserID} />
+    <div className='Music-container'>
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1, width: '10%' }}>
+          <SideNavBar Name={Name} UserID={UserID} />
+        </div>
+        <br />
 
-      <Link style={{ textDecoration: 'none' }} to='/SongAdd'>
-        <Button style={{ marginLeft: 50 }} variant='success'>
-          Add Song
-        </Button>
-      </Link>
-
-      {Songs ? (
-        Songs.map((song) => (
-          <CardDisplayComp
-            key={song.SONG_ID}
-            Name={song.SONG_NAME}
-            Singer={song.SONG_SINGER}
-            Lyricist={song.SONG_LYRICIST}
-            Music={song.SONG_MUSIC}
-            Duration={song.SONG_DURATION}
-            Platform={song.P_ID === 3 ? 'Spotify' : 'Jio Saavn'}
-            ReleaseYear={song.SONG_YEAR}
-            imgLink={song.SONG_IMAGE}
-          />
-        ))
-      ) : (
-        <Spinner animation='border' style={{ marginLeft: 750 }} role='status'>
-          <span className='sr-only'>Loading...</span>
-        </Spinner>
-      )}
+        <div style={{ marginLeft: '10%' }}>
+          <br />
+          <Row>
+            {Songs ? (
+              Songs.map((song) => (
+                <Col key={song.M_ID} sm>
+                  {' '}
+                  <RecipeReviewCard
+                    key={song.SONG_ID}
+                    Name={song.SONG_NAME}
+                    Singer={song.SONG_SINGER}
+                    Lyricist={song.SONG_LYRICIST}
+                    Music={song.SONG_MUSIC}
+                    Duration={song.SONG_DURATION}
+                    Platform={song.P_ID === 3 ? 'Spotify' : 'Jio Saavn'}
+                    ReleaseYear={song.SONG_YEAR}
+                    imgLink={song.SONG_IMAGE}
+                  />{' '}
+                  <br />
+                </Col>
+              ))
+            ) : (
+              <div>
+                <Spinner
+                  animation='border'
+                  style={{ marginLeft: 750 }}
+                  role='status'
+                >
+                  <span className='sr-only'>Loading...</span>
+                </Spinner>
+              </div>
+            )}
+          </Row>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default SongScreen;
+
+// {Songs ? (
+//   Songs.map((song) => (
+//     <div key={song.SONG_ID}>
+//
+//     </div>
+//   ))
+// ) : (
+//   <Spinner
+//     animation='border'
+//     style={{ marginLeft: 750 }}
+//     role='status'
+//   >
+//     <span className='sr-only'>Loading...</span>
+//   </Spinner>
+// )}

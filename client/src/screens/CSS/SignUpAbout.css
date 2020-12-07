@@ -1,0 +1,107 @@
+.signin-container {
+  background: url('../../animeFiles/aboutPage2.jpeg') center center/cover
+    no-repeat;
+  height: 120vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+
+.about-container {
+  background: url('../../animeFiles/backImage.jpg') center center/cover
+    no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+
+.Sub-container {
+  background: url('../../animeFiles/about2.jpg') center center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+.WebSeries-container {
+  background: url('../../animeFiles//aboutPage.jpeg') center center/cover
+    no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+.Movie-container {
+  background: url('../../animeFiles/movie5.jpeg') center center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+.MovieDesc-container {
+  background: url('../../animeFiles/movie.jpeg') center center/cover no-repeat;
+  height: 210vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+.Subbed-container {
+  background: url('../../animeFiles/subbed.jpg') center center/cover no-repeat;
+  height: 130vh;
+  width: 100%;
+  display: flex;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+.Music-container {
+  background: url('../../animeFiles/songs4.jpeg') center center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+.MusicDesc-container {
+  background: url('../../animeFiles/movie.jpeg') center center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+
+.SubForm-container {
+  background: url('../../animeFiles/sub2.jpeg') center center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+.img-wrapper {
+  overflow: hidden;
+  width: 40%;
+}
+
+.hover-zoom img:hover {
+  transform: scale(1.25);
+}

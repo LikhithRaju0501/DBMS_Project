@@ -1,30 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import NavBarComp from '../components/NavBarComp';
-import queryString from 'query-string';
+import React from 'react';
+import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const AboutScreen = ({ location }) => {
-  const [Name, setName] = useState(null);
-  const [UserID, setUserID] = useState(null);
+import './CSS/SignUpAbout.css';
 
-  useEffect(() => {
-    const { name, user_id } = queryString.parse(location.search);
-    setName(name);
-    setUserID(user_id);
-  }, [location]);
+const AboutScreen = () => {
   return (
-    <div>
-      <NavBarComp Name={Name} UserID={UserID} />
+    <div className='about-container'>
       <div
         style={{
-          fontFamily: 'Courgette',
-          fontSize: 40,
-          marginLeft: 40,
-          marginRight: 40,
+          color: 'black',
+          fontFamily: 'Sansita Swashed',
+          width: '70%',
         }}
       >
-        This Application gives information regarding the Latest Movies,
-        Songs,Web Series released along with their ratings, platform in which it
-        is released.
+        <Card style={{ borderColor: 'black', borderWidth: '3px' }}>
+          {' '}
+          <h3
+            style={{
+              fontSize: 35,
+              margin: 50,
+            }}
+          >
+            {' '}
+            Hey!! Welcome , You might be here to know about this website. We
+            Keep you updated about the latest Movies, Songs , Webseries released
+            on various OTT platforms. The OTT platforms include Amazon Prime
+            Video, Netflix, Spotify and Jio Saavn right now. You can Enjoy ;)
+          </h3>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            {' '}
+            <Button
+              style={{ width: '50%', marginLeft: '25%', marginBottom: 30 }}
+            >
+              Back To SignUp and Login
+            </Button>
+          </Link>
+        </Card>
       </div>
     </div>
   );

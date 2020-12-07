@@ -24,121 +24,119 @@ const WebseriesComp = ({ Name }) => {
   }, [Name, Movie]);
   return (
     <div>
-      {' '}
-      <div style={styles.header}>
-        <h1>{Movie}</h1>
-      </div>
-      <div style={styles.gridContainer}>
-        <div
-          style={{
-            marginLeft: 50,
-            marginTop: 30,
-            wordWrap: 'break-word',
-            width: '600px',
-          }}
-        >
-          <h3>Description:</h3>
-          {Desc
-            ? Desc.map((des) => (
-                <div key={des.s_id}>
-                  <Accordion>
-                    <Card>
-                      <Accordion.Toggle as={Card.Header} eventKey='0'>
-                        <h5>{des.s_name}</h5>
-                        <p>Click here for Information.</p>
-                      </Accordion.Toggle>
-                      <Accordion.Collapse eventKey='0'>
-                        <Card.Body>
-                          <h6>{des.s_desc}</h6> <hr />
-                          <br />
-                          <img
-                            src={des.s_image}
-                            width='50%'
-                            height='60%'
-                            alt=''
-                          />{' '}
-                          <hr />
-                          <h6>{des.s_cast}</h6>
-                          <hr />
-                          <h4>Platform:</h4>
-                          {des.p_id === 1 ? (
+      {Desc ? (
+        Desc.map((des) => (
+          <div
+            key={des.m_id}
+            style={{
+              backgroundImage: 'url(' + des.s_image + ')',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              height: '100vh',
+            }}
+          >
+            <br />
+            <Card
+              style={{
+                width: '50%',
+                marginRight: 'auto',
+                marginLeft: 'auto',
+              }}
+            >
+              <div>
+                <Accordion>
+                  <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey='0'>
+                      <h5>{des.s_name}</h5>
+                      <p>Click here for Information.</p>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey='0'>
+                      <Card.Body>
+                        <h6>{des.s_desc}</h6>
+                        <br />
+                        <h5>Cast: {des.s_cast}</h5>
+                        <br />
+                        <h4>Platform:</h4>
+                        {des.p_id === 1 ? (
+                          <div
+                            style={{
+                              display: 'grid',
+                              gridTemplateColumns: '1fr 1fr',
+                            }}
+                          >
+                            <Lottie
+                              style={{
+                                width: '80%',
+                                marginLeft: 40,
+                                backgroundColor: '#dff9fb',
+                              }}
+                              animationData={amazon}
+                            />
+                            <div>
+                              <h6>
+                                Amazon Prime is a subscription membership to
+                                Amazon that offers customers premium services
+                                for a yearly or monthly fee. Amazon Prime
+                                provides discounts on shipping, a free
+                                membership to Prime Video, Twitch Prime, Amazon
+                                Drive and thirty minutes early access to
+                                Lightning Deals for a yearly subscription fee.
+                              </h6>{' '}
+                              <br />
+                              <p>Montly Plan: Rs 129</p>
+                              <p>Yearly Plan:Rs 999</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div
+                            style={{
+                              display: 'grid',
+                              gridTemplateColumns: '1fr 1fr',
+                            }}
+                          >
+                            <Lottie
+                              style={{
+                                width: '100%',
+                                height: '90%',
+                                backgroundColor: '#f6e58d',
+                              }}
+                              animationData={netflix}
+                            />
                             <div
                               style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
+                                marginLeft: 10,
                               }}
                             >
-                              <Lottie
-                                style={{ width: '60%', marginLeft: 40 }}
-                                animationData={amazon}
-                              />
-                              <div>
-                                <h6>
-                                  Amazon Prime is a subscription membership to
-                                  Amazon that offers customers premium services
-                                  for a yearly or monthly fee. Amazon Prime
-                                  provides discounts on shipping, a free
-                                  membership to Prime Video, Twitch Prime,
-                                  Amazon Drive and thirty minutes early access
-                                  to Lightning Deals for a yearly subscription
-                                  fee.
-                                </h6>{' '}
-                                <br />
-                                <p>Montly Plan: Rs 129</p>
-                                <p>Yearly Plan:Rs 999</p>
-                              </div>
+                              {' '}
+                              <h6>
+                                Netflix, Inc. is a streaming entertainment
+                                service company, which provides subscription
+                                service streaming movies and television episodes
+                                over the Internet and sending DVDs by mail. It
+                                operates through the following segments:
+                                Domestic Streaming, International Streaming and
+                                Domestic DVD.
+                              </h6>{' '}
+                              <br />
+                              <p>Montly Plan: Rs199 to Rs999</p>
+                              <p>Yearly Plan: Rs2388 to Rs9588</p>
                             </div>
-                          ) : (
-                            <div
-                              style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                              }}
-                            >
-                              <Lottie
-                                style={{
-                                  width: '100%',
-                                  height: '90%',
-                                }}
-                                animationData={netflix}
-                              />
-                              <div>
-                                {' '}
-                                <h6>
-                                  Netflix, Inc. is a streaming entertainment
-                                  service company, which provides subscription
-                                  service streaming movies and television
-                                  episodes over the Internet and sending DVDs by
-                                  mail. It operates through the following
-                                  segments: Domestic Streaming, International
-                                  Streaming and Domestic DVD.
-                                </h6>{' '}
-                                <br />
-                                <p>Montly Plan: Rs199 to Rs999</p>
-                                <p>Yearly Plan: Rs2388 to Rs9588</p>
-                              </div>
-                            </div>
-                          )}
-                        </Card.Body>
-                      </Accordion.Collapse>
-                    </Card>
-                  </Accordion>
-                </div>
-              ))
-            : null}
-        </div>
-      </div>
+                          </div>
+                        )}
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                </Accordion>
+              </div>
+            </Card>
+          </div>
+        ))
+      ) : (
+        <h3>Loading</h3>
+      )}
     </div>
   );
 };
 
-const styles = {
-  header: {
-    marginLeft: 50,
-  },
-  gridContainer: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-  },
-};
 export default WebseriesComp;

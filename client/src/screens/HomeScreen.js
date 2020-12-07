@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import NavBarComp from '../components/NavBarComp';
-import CardDisplayComp from '../components/Movies_Songs/CardDisplayComp';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './CSS/SignUpAbout.css';
+import RecipeReviewCard from '../components/Movies_Songs/CardMaterialUI';
+import SideNavBar from '../components/SideNavBar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const HomeScreen = ({ location }) => {
   const [Name, setName] = useState(null);
@@ -29,34 +32,56 @@ const HomeScreen = ({ location }) => {
       });
   }, [location]);
   return (
-    <div>
-      <NavBarComp Name={Name} UserID={UserID} />
-      {Movies ? (
-        Movies.map((movie) => (
-          <Link
-            key={movie.M_ID}
-            to={`/description?movie=${movie.M_NAME}`}
-            style={{ textDecoration: 'none' }}
-          >
-            <CardDisplayComp
-              Director={movie.M_DIRECTOR}
-              Writer={movie.M_WRITER}
-              Name={movie.M_NAME}
-              Duration={movie.M_DUR}
-              Rating={movie.M_RATING}
-              Platform={movie.P_ID === 1 ? 'Amazon Prime Video' : 'Netflix'}
-              ReleaseYear={movie.M_YEAR}
-              imgLink={movie.M_IMAGE}
-            />
-          </Link>
-        ))
-      ) : (
-        <div>
-          <Spinner animation='border' style={{ marginLeft: 750 }} role='status'>
-            <span className='sr-only'>Loading...</span>
-          </Spinner>
+    <div className='Movie-container'>
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1, width: '10%' }}>
+          <SideNavBar Name={Name} UserID={UserID} />
         </div>
-      )}
+
+        <div style={{ marginLeft: '10%' }}>
+          <br />
+          <Row>
+            {Movies ? (
+              Movies.map((movie) => (
+                <Col key={movie.M_ID} sm>
+                  {' '}
+                  <Link
+                    to={`/description?movie=${movie.M_NAME}`}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <RecipeReviewCard
+                      Director={movie.M_DIRECTOR}
+                      Writer={movie.M_WRITER}
+                      Name={movie.M_NAME}
+                      Duration={movie.M_DUR}
+                      Rating={movie.M_RATING}
+                      Platform={
+                        movie.P_ID === 1 ? 'Amazon Prime Video' : 'Netflix'
+                      }
+                      ReleaseYear={movie.M_YEAR}
+                      imgLink={movie.M_IMAGE}
+                      Desc={movie.M_DESC}
+                      Cast={movie.M_CAST}
+                    />{' '}
+                    <br />
+                  </Link>
+                </Col>
+              ))
+            ) : (
+              <div>
+                <Spinner
+                  animation='border'
+                  style={{ marginLeft: 750 }}
+                  role='status'
+                >
+                  <span className='sr-only'>Loading...</span>
+                </Spinner>
+              </div>
+            )}
+          </Row>
+        </div>
+      </div>
+      {/* <NavBarComp Name={Name} UserID={UserID} /> */}
     </div>
   );
 };

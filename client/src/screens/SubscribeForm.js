@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import UserSubbedPlats from '../components/SubscribeForm/UserSubbedPlats';
 import queryString from 'query-string';
-import NavBarComp from '../components/NavBarComp';
+import './CSS/SignUpAbout.css';
+import SideNavBar from '../components/SideNavBar';
+import Heading from '../components/SubscribeForm/Heading';
 
 const SubscribeForm = ({ location }) => {
   const [UserID, setUserID] = useState(null);
@@ -15,10 +17,18 @@ const SubscribeForm = ({ location }) => {
   }, [location, Name]);
 
   return (
-    <div>
-      <NavBarComp Name={Name} UserID={UserID} />
-
-      <UserSubbedPlats Name={Name} UserID={UserID} />
+    <div className='SubForm-container'>
+      <div style={{ flex: 1, width: '10%' }}>
+        <SideNavBar Name={Name} UserID={UserID} />
+      </div>
+      <div style={{ marginRight: '30%' }}>
+        <div>
+          <Heading />
+        </div>
+        <div>
+          <UserSubbedPlats Name={Name} UserID={UserID} />
+        </div>
+      </div>
     </div>
   );
 };

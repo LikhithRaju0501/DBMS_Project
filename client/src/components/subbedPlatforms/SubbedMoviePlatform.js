@@ -4,19 +4,24 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SubbedPlatMovies from './SubbedComps/SubbedPlatMovies';
 import SubbedPlatWebseries from './SubbedComps/SubbedPlatWebseries';
+import '../../screens/CSS/SignUpAbout.css';
 
 const SubbedMoviePlatform = ({ PlatID, location }) => {
   return (
-    <div>
+    <div className='MovieDesc-container'>
       <Accordion
         defaultActiveKey='0'
-        style={{ display: 'flex', width: '90%', margin: 'auto' }}
+        style={{
+          display: 'flex',
+          width: '95%',
+          margin: 'auto',
+        }}
       >
         <Card style={{ flex: 1 }}>
           <Accordion.Toggle
             as={Card.Header}
             eventKey='0'
-            style={{ backgroundColor: '#2c3e50' }}
+            style={{ backgroundColor: '#2c3e50', color: 'black' }}
           >
             <div style={{ marginLeft: '50%', color: 'white' }}>Movies</div>
           </Accordion.Toggle>
@@ -36,6 +41,7 @@ const SubbedMoviePlatform = ({ PlatID, location }) => {
             eventKey='1'
             style={{
               margin: 'auto',
+              width: '100%',
             }}
           >
             <SubbedPlatWebseries PlatID={PlatID} />

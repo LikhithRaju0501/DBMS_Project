@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,8 +18,12 @@ const CardDisplayComp = ({
   Season,
   STYLES,
 }) => {
+  const [StylingImg, setStylingImg] = useState({
+    width: '97%',
+    height: 180,
+  });
   return (
-    <div>
+    <div style={{}}>
       <Card
         border='dark'
         style={
@@ -28,13 +32,31 @@ const CardDisplayComp = ({
             : {
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                width: '25%',
+                width: '50vh',
                 height: '30%',
+                boxShadow: '5px 5px  5px 5px #dfe4ea',
               }
         }
       >
         <div>
-          <img src={imgLink} alt='DDLJ' width='100%' height={180} />
+          <img
+            onMouseOver={() =>
+              setStylingImg({
+                width: '90%',
+                height: 170,
+                transform: 'scale(1.1)',
+              })
+            }
+            onMouseLeave={() =>
+              setStylingImg({
+                width: '97%',
+                height: 180,
+              })
+            }
+            src={imgLink}
+            alt='DDLJ'
+            style={StylingImg}
+          />
         </div>
         <hr />
         <Card.Body>

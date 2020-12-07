@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 
 const NavBarComp = ({ Name, UserID }) => {
   return (
-    <div style={{ marginLeft: 50, marginRight: 50 }}>
-      <Navbar bg='info' expand='lg'>
+    <div>
+      <Navbar bg='light' expand='lg'>
         <Navbar.Brand>
           <motion.h2
             whileHover={{ scale: 1.1 }}
@@ -16,7 +16,7 @@ const NavBarComp = ({ Name, UserID }) => {
             animate={{ rotate: 360 }}
             transition={{ duration: 1.5 }}
           >
-            <div style={{ color: '#dff9fb' }}>{Name}</div>
+            <div style={{ color: '#34495e' }}>{Name}</div>
           </motion.h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -70,14 +70,11 @@ const NavBarComp = ({ Name, UserID }) => {
                   Signout
                 </Link>{' '}
                 <br />
-                <NavDropdown.Divider />
-                <NavDropdown.Divider />
               </div>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Navbar>{' '}
-      <br />
     </div>
   );
 };

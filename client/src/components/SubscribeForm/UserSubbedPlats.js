@@ -70,8 +70,9 @@ const UserSubbedPlats = ({ UserID, Name }) => {
   };
 
   return (
-    <div>
-      <div style={{ float: 'right', marginRight: 50 }}>
+    <div style={{ width: '100%', marginLeft: '20%' }}>
+      <br />
+      <div>
         {' '}
         <Button
           variant='success'
@@ -95,46 +96,82 @@ const UserSubbedPlats = ({ UserID, Name }) => {
         </Button>
       </div>{' '}
       <br />
-      <br /> <hr />
-      <div style={{ marginLeft: 500, marginRight: 'auto' }}>
+      <br />
+      <div>
         {' '}
         {Amazon === 1 ? (
-          <Button variant='success' onClick={() => openModalUnsub('Amazon')}>
-            Amazon
+          <Button
+            variant='success'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModalUnsub('Amazon')}
+          >
+            Unsubscribe Amazon
           </Button>
         ) : (
-          <Button variant='danger' onClick={() => openModal('Amazon')}>
-            Amazon
+          <Button
+            variant='danger'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModal('Amazon')}
+          >
+            Subscribe Amazon
           </Button>
         )}{' '}
+        <br /> <br />
         {Netflix === 1 ? (
-          <Button variant='success' onClick={() => openModalUnsub('Netflix')}>
-            Netflix
+          <Button
+            variant='success'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModalUnsub('Netflix')}
+          >
+            Unsubscribe Netflix
           </Button>
         ) : (
-          <Button variant='danger' onClick={() => openModal('Netflix')}>
-            Netflix
+          <Button
+            variant='danger'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModal('Netflix')}
+          >
+            Subscribe Netflix
           </Button>
         )}{' '}
+        <br /> <br />
         {Spotify === 1 ? (
-          <Button variant='success' onClick={() => openModalUnsub('Spotify')}>
-            Spotify
+          <Button
+            variant='success'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModalUnsub('Spotify')}
+          >
+            Unsubscribe Spotify
           </Button>
         ) : (
-          <Button variant='danger' onClick={() => openModal('Spotify')}>
-            Spotify
+          <Button
+            variant='danger'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModal('Spotify')}
+          >
+            Subscribe Spotify
           </Button>
         )}
         {'  '}
+        <br /> <br />
         {Jio === 1 ? (
-          <Button variant='success' onClick={() => openModalUnsub('Jio Saavn')}>
-            Jio Saavn
+          <Button
+            variant='success'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModalUnsub('Jio Saavn')}
+          >
+            Unsubscribe Jio Saavn
           </Button>
         ) : (
-          <Button variant='danger' onClick={() => openModal('Jio Saavn')}>
-            Jio Saavn
+          <Button
+            variant='danger'
+            style={{ width: '100%', marginBottom: 30 }}
+            onClick={() => openModal('Jio Saavn')}
+          >
+            Subscribe Jio Saavn
           </Button>
         )}
+        <br /> <br />
       </div>
       <ModalSub
         IsUnsub={IsUnsub}

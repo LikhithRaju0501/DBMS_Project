@@ -13,11 +13,12 @@ const SubbedCards = ({
   Name,
   UserID,
   platID,
+  Width,
 }) => {
   return (
     <div
       style={{
-        width: '30%',
+        width: Width,
         margin: 'auto',
       }}
     >
@@ -28,7 +29,7 @@ const SubbedCards = ({
         >
           <div>
             <Card.Header className='Header'>
-              <h3 style={{ marginLeft: 130 }}>{PlatName}</h3>
+              <h3 style={{ marginLeft: '40%' }}>{PlatName}</h3>
             </Card.Header>
             <div
               style={{
